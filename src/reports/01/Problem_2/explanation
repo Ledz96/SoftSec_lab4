@@ -1,0 +1,1 @@
+Double free: in case of error in allocating chunk, chunk data is freed first in the function, then a second time in load_png. This leads to undefined behavior. 

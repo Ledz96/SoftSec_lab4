@@ -1,1 +1,0 @@
-In absence of a file to open, the input file is closed anyway in the error section. This is easily fixed by adding a check before closing.  

@@ -24,7 +24,7 @@ In practice, the program only returns if a png has been loaded correctly; in cas
 **Steps to Reproduce**
 
 Possible input (works with any non-valid png input)
-./size ../reports/00/id:000000,sig:11,src:000000,op:flip1,pos:0
+./size ../reports/00/id\:000000\,sig\:11\,src\:000000\,op\:flip1\,pos\:0
 
 **Proof of concept**
 

@@ -24,6 +24,9 @@ In practice, the program simply tries a cast to 16 bit integers, and then uses 3
 Possible input (works with any non-valid png input)
 ./size ../reports/03/Problem_4/id\:000000\,sig\:11\,src\:000000\,op\:flip1\,pos\:16
 
+**Proof-of-Concept Input**
+(attached: id:000000,sig:11,src:000000,op:flip1,pos:16) 
+
 **Suggested Fix Description**
 
 Multiple solutions might be adopted to fix this bug. I will now illustrate two of them:

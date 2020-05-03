@@ -1,1 +1,0 @@
-The first problem happens when the png format is not recognized. In this case, the load_png is checked in the wrong way, leading to a seg_fault.

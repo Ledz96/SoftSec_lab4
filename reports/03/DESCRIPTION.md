@@ -11,8 +11,8 @@ As a consequence, in case a 32 bit value higher than the highest representable i
 
 **Affected Lines**
 
-pngparser.c: 426, 433 (wrong checks)
-pngparser.c: 428-438 (possible out of bounds accesses)
+pngparser.c: 430, 437 (wrong checks)
+pngparser.c: 432-442 (possible out of bounds accesses)
 
 **Expected vs Observed**
 
@@ -28,4 +28,4 @@ Possible input (works with any non-valid png input)
 
 Multiple solutions might be adopted to fix this bug. I will now illustrate two of them:
 1) A simple but effective solution would be to allow the cast to 16 bits integer, and then use the img->size_x and img->size_y fields as upper bounds for the for loop. While this 'corrupts' the input image, the solution avoids out of bound accesses.
-2) This solution, that I deemed as better and chose as a consequence, consists in replacing size_x and size_y with 32 bits values, thus making the cast safe. In addition to this, I added a much necessary check on the allocation of the img->px pointer, as large images may not fit. In absence of said check, attempts to dereference the pointer would be made, leading to segmentation faults.
+2) This solution, that I deemed as better and chose as a consequence, consists in replacing size_x and size_y with 32 bits values, thus making the cast safe. In addition to this, I added a much necessary check on the allocation of the img->px pointer, as large images may not fit. In absence of said check, attempts to dereference the pointer would be made, leading to segmentation faults. An additional check has been put on the access on inflated_buf, as its size is not guaranteed to be compatible with the image size.

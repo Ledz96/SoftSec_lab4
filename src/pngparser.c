@@ -415,13 +415,12 @@ struct image *convert_color_palette_to_image(png_chunk_ihdr *ihdr_chunk, png_chu
 
     struct plte_entry *plte_entries = (struct plte_entry *) plte_chunk->chunk_data;
 
-    if ((img->size_y-1) * (1 + img->size_x) + img->size_x >= inflated_size) {
-        return NULL;
-    }
-
     struct image * img = malloc(sizeof(struct image));
     img->size_y = height;
     img->size_x = width;
+    if ((img->size_y-1) * (1 + img->size_x) + img->size_x >= inflated_size) {
+        return NULL;
+    }
     img->px = malloc(sizeof(struct pixel) * img->size_x * img->size_y); //TODO: check...
     if (!img->px) {
         return NULL;
